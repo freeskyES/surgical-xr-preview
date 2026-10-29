@@ -1,0 +1,25 @@
+.site-header > .container { gap: 28px; }
+.site-header > .container > nav:first-of-type { margin-left: auto; }
+.site-header nav.language-switch { gap: 9px; font-size: 12px; letter-spacing: .03em; }
+.site-header .language-switch span { color: #c3cbd2; font-weight: 400; }
+.site-header .language-switch a { min-height: 44px; display: inline-flex; align-items: center; }
+.site-header .language-switch a[aria-current] { color: #1f4e78; font-weight: 700; }
+.language-switch a:focus-visible { outline: 2px solid #3974a5; outline-offset: 4px; border-radius: 3px; }
+.detail-language-note { font-size: 13px; color: #596a79; margin-block: 0 14px; }
+html[lang="en"] .theme-cinema #product-name { font-size: clamp(38px, 3.9vw, 61px); line-height: 1.15; letter-spacing: -.045em; }
+html[lang="en"] .section-heading h2 { letter-spacing: -.035em; }
+html[lang="en"] .product-feature-copy p { line-height: 1.65; }
+@media (max-width: 720px) {
+  .site-header > .container { gap: 15px; }
+  .site-header nav:first-of-type { gap: 13px; }
+  .site-header nav.language-switch { gap: 6px; font-size: 11px; }
+  .site-header .brand-name { font-size: 20px; }
+  html[lang="en"] .theme-cinema #product-name { font-size: clamp(37px, 8vw, 52px); }
+  html[lang="en"] .section-nav-items a { padding-inline: 10px; font-size: 12px; }
+}
+@media (max-width: 380px) {
+  html[lang="en"] .theme-cinema #product-name { font-size: 32px; }
+  .site-header > .container { gap: 10px; }
+  .site-header .brand-name { font-size: 18px; }
+  .site-header nav:first-of-type { gap: 10px; font-size: 12px; }
+}
