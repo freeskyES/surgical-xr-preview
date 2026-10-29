@@ -3,6 +3,15 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+// A static-site baseline, not authentication or copy protection. Inline styles
+// support existing diagrams/motion; scripts have no unsafe-inline/eval exception.
+// Meta CSP cannot enforce frame-ancestors or report-only policies.
+export const publicContentSecurityPolicy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; media-src 'self'; font-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'";
+export const publicSecurityMeta = `<meta http-equiv="Content-Security-Policy" content="${publicContentSecurityPolicy}">`;
+export function addPublicSecurityPolicy(html) {
+  return html.replace(/<head>/i, `<head>${publicSecurityMeta}`);
+}
+
 const allowedExtensions = new Set(['.html', '.css', '.js', '.mjs', '.png', '.jpg', '.jpeg', '.webp', '.svg', '.mp4', '.woff2', '.pdf', '.txt']);
 const forbiddenText = [
   /sourceMappingURL|sourcesContent/,
@@ -44,6 +53,7 @@ export async function validatePublication(directory, hashes, pages) {
         const text = data.toString('utf8');
         if (forbiddenText.some(pattern => pattern.test(text))) throw Error(`Publication rejected: private-source marker ${name}`);
         if (/\.html$/.test(name)) {
+          if (!text.includes(`<head>${publicSecurityMeta}`)) throw Error(`Publication rejected: missing or changed CSP ${name}`);
           if (!/<meta name="robots" content="noindex, nofollow">/.test(text)) throw Error(`Publication rejected: missing noindex policy ${name}`);
           if (/type=["']application\/(?:json|ld\+json)["']/.test(text)) throw Error(`Publication rejected: embedded data ${name}`);
           for (const anchor of text.matchAll(/<a\b[^>]*>/g)) {
