@@ -6,7 +6,7 @@ a.publication-locked {
   text-decoration: none;
 }
 a.publication-locked:hover { text-decoration: none; }
-a.publication-locked > .publication-lock {
+a.publication-locked .publication-lock {
   position: absolute;
   inset-inline-end: 0;
   top: 50%;
@@ -26,3 +26,19 @@ a.publication-locked > .publication-lock {
 .publication-lock svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
 .publication-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 a.publication-locked:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 3px; }
+
+.history-article > a.publication-locked { padding-inline-end: 0 !important; }
+.history-article .publication-locked .article-cover > .publication-lock {
+  top: auto;
+  bottom: 16px;
+  inset-inline-end: 16px;
+  transform: none !important;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+}
+.history-article .publication-locked .publication-lock svg { width: 17px; height: 17px; }
+.history-article > a.publication-locked:hover h2 { text-decoration: none; }
+.history-article > a.publication-locked:hover .article-cover img { transform: none; }
