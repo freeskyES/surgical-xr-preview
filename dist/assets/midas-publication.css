@@ -1,4 +1,15 @@
 /* Public build only. Existing home content, tabs and media remain interactive. */
+body, body * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+input, textarea, [contenteditable]:not([contenteditable="false"]),
+[contenteditable]:not([contenteditable="false"]) * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+img, a { -webkit-user-drag: none; }
+
 a.publication-locked {
   position: relative;
   padding-inline-end: 29px !important;
