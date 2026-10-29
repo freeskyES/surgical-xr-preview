@@ -1,0 +1,37 @@
+/* Pretendard Variable 1.3.9, unmodified OFL font. Source and hash: TYPOGRAPHY.md. */
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('./midas-fonts/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+:root {
+  --font-ui: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --weight-body: 400;
+  --weight-label: 500;
+  --weight-emphasis: 600;
+  --weight-heading: 650;
+  --tracking-body: -.012em;
+  --tracking-heading: -.035em;
+  --leading-body: 1.85;
+  font-family: var(--font-ui);
+  font-synthesis: none;
+}
+body { font-weight: var(--weight-body); letter-spacing: var(--tracking-body); line-height: var(--leading-body); }
+button, input, select, textarea { font: inherit; }
+h1, h2, h3 { font-weight: var(--weight-heading); letter-spacing: var(--tracking-heading); }
+.eyebrow, .article-date, figcaption, .tag { font-weight: var(--weight-label); }
+.history-article .article-preview > p:not(.eyebrow) { font-size: 15px; line-height: 1.8; font-weight: var(--weight-body); }
+.article-header h1, .history-article h2 { letter-spacing: var(--tracking-heading); }
+.article-data, .history-list time { font-variant-numeric: tabular-nums; }
+.article-header h1, .article-body h2, .article-body h3 { word-break: keep-all; overflow-wrap: break-word; }
+.article-body > section > p:not(.article-date) { line-height: 1.85; margin-block: 18px; }
+html:has(.build-article) { scroll-padding-top: 50px; }
+.article-body > section { scroll-margin-top: 0; }
+.article-body .article-data { font-size: 14px; line-height: 1.75; }
+@media (max-width: 600px) {
+  .history-article .article-preview > p:not(.eyebrow) { font-size: 14px; line-height: 1.8; }
+  .article-body > section > p:not(.article-date) { font-size: 16px; }
+  .article-body .article-data { font-size: 13px; }
+}

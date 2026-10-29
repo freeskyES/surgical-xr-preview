@@ -1,0 +1,190 @@
+/* B-only product study. Article styles and the A comparison remain unchanged. */
+.theme-cinema {
+  --feature-space: 88px;
+  --feature-title-size: 40px;
+  --feature-column-gap: 48px;
+  --body-copy: #435262;
+  --caption-copy: #5d6b78;
+}
+
+.theme-cinema :is(#video, #anatomy, #vitals, #related) {
+  padding-block: var(--feature-space);
+  scroll-margin-top: calc(-1 * var(--feature-space));
+}
+.theme-cinema :is(#video, #anatomy, #vitals, #related) .section-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.theme-cinema :is(#video, #anatomy, #vitals, #related) .section-heading h2 {
+  font-size: var(--feature-title-size);
+  font-weight: 580;
+  line-height: 1.28;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .section-intro {
+  max-width: 760px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.7;
+  color: #526171;
+  opacity: 1;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .product-feature-layout {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--feature-column-gap);
+  align-items: start;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .product-feature-copy {
+  min-width: 0;
+  padding-top: 0;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .feature-item + .feature-item {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .product-feature-copy h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .product-feature-copy p {
+  max-width: 42em;
+  font-size: 15px;
+  font-weight: 430;
+  line-height: 1.75;
+  color: var(--body-copy);
+  opacity: 1;
+  text-wrap: pretty;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .product-feature-copy p + p {
+  margin-top: 12px;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .feature-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 24px;
+  margin-top: 16px;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .feature-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 0;
+  border: 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.5;
+  white-space: normal;
+  text-decoration: none;
+}
+.theme-cinema :is(#video, #anatomy, #vitals) .feature-links a:hover {
+  color: #103e64;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.theme-cinema .feature-links a span {
+  flex-shrink: 0;
+  font-size: 14px;
+  transition: transform .2s;
+}
+.theme-cinema .feature-links a:hover span { transform: translate(2px, -2px); }
+.theme-cinema :is(#video, #anatomy, #vitals) figcaption {
+  padding-top: 12px;
+  color: var(--caption-copy);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.theme-cinema :is(.image-open, .film-frame, .related-cover) { border-radius: 16px; }
+.theme-cinema .expand { color: var(--ink); }
+.theme-cinema .main-film figcaption { font-size: 12px; }
+.theme-cinema .main-film .evidence-link { font-size: 12px; }
+.theme-cinema .product-stage, .theme-cinema .product-platforms { font-size: 12px; }
+.theme-cinema .intro-link { min-height: 44px; }
+
+.theme-cinema .related-project-grid { gap: 32px; }
+.theme-cinema .related-cover { aspect-ratio: 16 / 10; }
+.theme-cinema .related-cover.orchestra img { object-fit: cover; padding: 0; }
+.theme-cinema .related-project-grid h3 { font-size: 24px; }
+.theme-cinema .related-project-grid h3 a { min-height: 44px; gap: 16px; }
+.theme-cinema .related-project-grid article > .eyebrow { margin-top: 20px; font-size: 12px; }
+.theme-cinema .related-project-grid article > p:not(.eyebrow) {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--body-copy);
+}
+.theme-cinema .related-project-grid article > p.related-result-line {
+  font-size: 13px;
+  color: var(--caption-copy);
+}
+.theme-cinema .next-section { padding-block: 40px 48px; }
+.theme-cinema .next-title { min-height: 44px; }
+.theme-cinema .next-section .product-brief {
+  width: 100%;
+  margin-top: 28px;
+  padding: 0;
+  gap: 32px;
+}
+.theme-cinema .product-brief dd { color: var(--caption-copy); font-size: 13px; line-height: 1.8; }
+.theme-cinema .product-brief .text-link { min-height: 44px; align-items: center; margin-top: 2px; font-size: 13px; }
+.theme-cinema .brief-state { color: var(--caption-copy); font-size: 12px; }
+.theme-cinema .site-footer { padding-block: 28px 32px; }
+.theme-cinema .site-footer a:not(.brand) { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; }
+.theme-cinema .site-footer p { margin-top: 0; font-size: 11px; }
+.theme-cinema .image-dialog { background: #101f2d; }
+.theme-cinema .image-dialog::backdrop { background: #0a1725b8; }
+
+@media (min-width: 1600px) {
+  .theme-cinema { --feature-space: 96px; --feature-title-size: 44px; }
+}
+@media (max-width: 960px) {
+  .theme-cinema { --feature-space: 72px; --feature-title-size: 36px; }
+  .theme-cinema :is(#video, #anatomy, #vitals) .product-feature-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .theme-cinema .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 32px;
+    padding-block: 48px;
+  }
+  .theme-cinema .product-intro h1 { font-size: clamp(32px, 5vw, 44px); }
+  .theme-cinema .product-stage { margin-top: 20px; }
+  .theme-cinema .intro-link { margin-top: 20px; }
+}
+@media (max-width: 720px) {
+  .theme-cinema { --feature-space: 56px; --feature-title-size: 32px; }
+  .theme-cinema .hero-content { padding-block: 40px 32px; gap: 28px; }
+  .theme-cinema .product-intro h1 { font-size: clamp(32px, 8vw, 48px); }
+  .theme-cinema :is(#video, #anatomy, #vitals, #related) .section-heading { margin-bottom: 24px; }
+  .theme-cinema :is(#video, #anatomy, #vitals) .section-intro { font-size: 15px; }
+  .theme-cinema :is(#video, #anatomy, #vitals) .product-feature-copy h3 { font-size: 17px; }
+  .theme-cinema :is(#video, #anatomy, #vitals) .feature-item + .feature-item { margin-top: 18px; padding-top: 18px; }
+  .theme-cinema :is(#video, #anatomy, #vitals) .feature-links { gap: 0 20px; margin-top: 12px; }
+  .theme-cinema :is(.image-open, .film-frame, .related-cover) { border-radius: 13px; }
+  .theme-cinema .related-project-grid { gap: 36px; }
+  .theme-cinema .next-section { padding-block: 32px 36px; }
+  .theme-cinema .next-section .product-brief { margin-top: 24px; gap: 18px; }
+  .theme-cinema .product-brief > div { grid-template-columns: 64px minmax(0, 1fr); gap: 14px; }
+  .theme-cinema .product-brief > div + div { padding-top: 18px; }
+  .theme-cinema .product-brief dd .text-link { margin-left: 0; }
+  .theme-cinema .brief-state { margin-left: 0; }
+}
+@media (max-width: 360px) {
+  .theme-cinema { --feature-title-size: 29px; }
+  .theme-cinema .product-platforms { font-size: 11px; }
+}

@@ -1,0 +1,28 @@
+/* Public build only. Existing home content, tabs and media remain interactive. */
+a.publication-locked {
+  position: relative;
+  padding-inline-end: 29px !important;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+a.publication-locked:hover { text-decoration: none; }
+a.publication-locked > .publication-lock {
+  position: absolute;
+  inset-inline-end: 0;
+  top: 50%;
+  transform: translateY(-50%) !important;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 16%, transparent);
+  border-radius: 7px;
+  background: linear-gradient(145deg, #ffffff24, #8dabc218);
+  box-shadow: inset 0 1px 0 #ffffff40;
+  color: inherit;
+  pointer-events: none;
+}
+.publication-lock svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.publication-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+a.publication-locked:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 3px; }
