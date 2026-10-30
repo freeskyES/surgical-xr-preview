@@ -1,0 +1,27 @@
+/* Language controls for translated articles, using the existing green palette. */
+.localized-article .site-header > .container { gap: 28px; }
+.localized-article .site-header nav:first-of-type { margin-left: auto; }
+.localized-article .site-header nav.language-switch { gap: 9px; font-size: 12px; letter-spacing: .03em; }
+.localized-article .language-switch a { padding: 9px 2px; }
+.localized-article .language-switch a[aria-current] { color: var(--accent); font-weight: 700; border: 0; }
+.localized-article .language-switch span { color: var(--muted); opacity: .5; }
+.localized-article .language-switch a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.localized-article .footer-brand, .localized-article .site-footer .brand { gap: 5px; }
+html[lang="en"] .localized-article .article-body { word-break: normal; overflow-wrap: break-word; }
+html[lang="en"] .localized-article .article-jump-links a { line-height: 1.4; }
+html[lang="en"] .localized-article .orchestra-map-columns,
+html[lang="en"] .localized-article .oc-hook-columns { line-height: 1.5; }
+@media (max-width: 720px) {
+  .localized-article .site-header > .container { gap: 15px; }
+  .localized-article .site-header nav:first-of-type { gap: 13px; }
+  .localized-article .site-header .brand-name { font-size: 20px; }
+  .localized-article .site-header nav.language-switch { gap: 5px; font-size: 11px; }
+}
+@media (max-width: 380px) {
+  .localized-article .site-header > .container { gap: 10px; }
+  .localized-article .site-header .brand-name { font-size: 18px; }
+}
+.localized-article .site-header nav.language-switch { margin-left: 0; align-items: center; }
+.localized-article .language-switch a[aria-current] { box-shadow: none; }
+.localized-article .site-footer .brand { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+.localized-article .site-footer .brand-affiliation { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: .08em; }
