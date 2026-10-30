@@ -25,3 +25,6 @@ html[lang="en"] .localized-article .oc-hook-columns { line-height: 1.5; }
 .localized-article .language-switch a[aria-current] { box-shadow: none; }
 .localized-article .site-footer .brand { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
 .localized-article .site-footer .brand-affiliation { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: .08em; }
+
+/* Balance translated RoboPose headings without changing the Korean layout. */
+html[lang="en"] .article-robopose :is(h1, h2) { text-wrap: balance; }
