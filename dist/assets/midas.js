@@ -205,7 +205,7 @@ function filterHistory(value,write=false){
  let count=0;
  for(const row of records){row.hidden=selected!=='all'&&selected!==row.dataset.historyTrack;if(!row.hidden)count++;}
  filters.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.historyFilter===selected)));
- const live=document.querySelector('[data-history-count]');if(live)live.textContent=`${count}개의 주요 기록`;
+ const live=document.querySelector('[data-history-count]');if(live)live.textContent=(count===1?live.dataset.countOne:live.dataset.countMany)?.replace('{count}',String(count)) || `${count}개의 주요 기록`;
  if(write){const url=new URL(location.href);if(selected==='all')url.searchParams.delete('topic');else url.searchParams.set('topic',selected);url.hash='';history.pushState(null,'',url);}
 }
 function restoreHistory(){const selected=new URL(location.href).searchParams.get('topic');const target=location.hash?document.getElementById(location.hash.slice(1)):null;filterHistory(target?.dataset.historyTrack?'all':selected);if(target?.dataset.historyTrack)target.scrollIntoView({behavior:'instant',block:'start'});}
