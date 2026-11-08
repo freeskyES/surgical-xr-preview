@@ -1,0 +1,155 @@
+/* Shared navigation geometry; each page keeps its own palette. */
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('./midas-fonts/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+:root { --header: 80px; }
+.unified-header:is(.site-header, .motion-header) {
+  box-sizing: border-box;
+  height: var(--header);
+  font-family: 'Pretendard Variable', sans-serif;
+  font-synthesis: none;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+}
+.unified-header:is(.site-header, .motion-header) > .header-inner {
+  width: min(1400px, calc(100% - 96px));
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 32px;
+}
+.unified-header:is(.site-header, .motion-header) :is(.brand, .motion-brand) {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.unified-header:is(.site-header, .motion-header) .brand-name {
+  display: inline;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -.045em;
+  color: var(--ink);
+}
+.unified-header:is(.site-header, .motion-header) .brand-affiliation {
+  display: inline;
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  color: var(--muted);
+}
+.unified-header:is(.site-header, .motion-header) .header-nav {
+  display: flex;
+  align-self: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  gap: 32px;
+  margin: 0 0 0 auto;
+}
+.unified-header:is(.site-header, .motion-header) .header-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 2px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--muted);
+}
+.unified-header:is(.site-header, .motion-header) .header-nav a[aria-current] {
+  font-weight: 650;
+  color: var(--ink);
+  box-shadow: inset 0 -2px var(--accent);
+}
+.unified-header:is(.site-header, .motion-header) .header-language {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  width: auto;
+  gap: 8px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .02em;
+}
+.unified-header:is(.site-header, .motion-header) .header-language a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 2px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  text-decoration: none;
+  color: var(--muted);
+  box-shadow: none;
+}
+.unified-header:is(.site-header, .motion-header) .header-language a[aria-current] {
+  color: var(--ink);
+  font-weight: 700;
+}
+.unified-header:is(.site-header, .motion-header) .header-language > span {
+  color: var(--muted);
+  opacity: .5;
+}
+.unified-header a:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+@media (max-width: 1100px) {
+  .unified-header:is(.site-header, .motion-header) > .header-inner {
+    width: calc(100% - 64px);
+    gap: 24px;
+  }
+}
+@media (max-width: 760px) {
+  :root { --header: 72px; }
+  .unified-header:is(.site-header, .motion-header) > .header-inner {
+    width: calc(100% - 40px);
+    gap: 20px;
+  }
+  .unified-header:is(.site-header, .motion-header) .brand-name { font-size: 20px; }
+  .unified-header:is(.site-header, .motion-header) .brand-affiliation { display: none; }
+  .unified-header:is(.site-header, .motion-header) .header-nav { gap: 18px; }
+  .unified-header:is(.site-header, .motion-header) .header-nav a { font-size: 13px; }
+  .unified-header:is(.site-header, .motion-header) .header-language { gap: 6px; }
+}
+@media (max-width: 480px) {
+  :root { --header: 96px; }
+  .unified-header:is(.site-header, .motion-header) > .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 48px 1fr;
+    gap: 0 16px;
+  }
+  .unified-header:is(.site-header, .motion-header) :is(.brand, .motion-brand) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .unified-header:is(.site-header, .motion-header) .header-language {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .unified-header:is(.site-header, .motion-header) .header-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+  }
+}
+@media print { .unified-header { display: none; } }
