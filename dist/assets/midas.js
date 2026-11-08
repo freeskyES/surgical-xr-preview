@@ -3,12 +3,9 @@ import { dateAt, formatPlanMarkdown } from './midas-plan-format.mjs';
 const systemMotion=matchMedia('(prefers-reduced-motion: reduce)');
 try{if(localStorage.getItem('midas-motion')==='reduce')document.documentElement.dataset.motion='reduce';}catch{}
 const reduceMotion={get matches(){return systemMotion.matches||document.documentElement.dataset.motion==='reduce';}};
-const motionButton=document.querySelector('[data-motion-toggle]');
 function syncMotion(){
- if(motionButton){motionButton.hidden=false;motionButton.setAttribute('aria-pressed',String(reduceMotion.matches));motionButton.title=systemMotion.matches?'기기의 움직임 줄이기 설정이 적용되어 있습니다.':'이 브라우저의 움직임 설정';}
  if(reduceMotion.matches)document.getAnimations().forEach(animation=>animation.cancel());
 }
-motionButton?.addEventListener('click',()=>{const reduced=document.documentElement.dataset.motion!=='reduce';document.documentElement.dataset.motion=reduced?'reduce':'full';try{localStorage.setItem('midas-motion',reduced?'reduce':'full');}catch{}syncMotion();});
 systemMotion.addEventListener('change',syncMotion);syncMotion();
 if('IntersectionObserver' in window){
  const reveal=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){if(!reduceMotion.matches)entry.target.animate([{opacity:.45,transform:'translateY(18px)'},{opacity:1,transform:'none'}],{duration:550,easing:'cubic-bezier(.2,.7,.2,1)'});reveal.unobserve(entry.target);}},{threshold:.08});
@@ -153,8 +150,8 @@ function restoreWork(){
 if(workFilters.length){
  workFilters.forEach(button=>button.addEventListener('click',()=>filterWork(button.dataset.workFilter,topicSelect?.value||'all',true)));
  topicSelect?.addEventListener('change',()=>filterWork(workState,topicSelect.value,true));
- document.querySelectorAll('[data-jump-state]').forEach(a=>a.addEventListener('click',()=>filterWork(a.dataset.jumpState,'all',true)));
- document.querySelectorAll('[data-task-jump]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();filterWork('all','all');const target=document.getElementById(`task-${a.dataset.taskJump}`);if(!target)return;target.querySelector('details').open=true;target.tabIndex=-1;const url=new URL(location.href);url.searchParams.set('state','all');url.searchParams.delete('track');url.hash=target.id;history.pushState(null,'',url);target.scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth',block:'start'});target.focus({preventScroll:true});}));
+ document.querySelectorAll('[data-jump-state]').forEach(a=>a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();filterWork(a.dataset.jumpState,'all',true);const target=document.getElementById('work');if(!target)return;target.tabIndex=-1;target.scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth',block:'start'});target.focus({preventScroll:true});}));
+ document.querySelectorAll('[data-task-jump]').forEach(a=>a.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();filterWork('all','all');const target=document.getElementById(`task-${a.dataset.taskJump}`);if(!target)return;target.querySelector('details').open=true;target.tabIndex=-1;const url=new URL(location.href);url.searchParams.set('state','all');url.searchParams.delete('track');url.hash=target.id;history.pushState(null,'',url);target.scrollIntoView({behavior:reduceMotion.matches?'instant':'smooth',block:'start'});target.focus({preventScroll:true});}));
  restoreWork();addEventListener('popstate',restoreWork);addEventListener('hashchange',restoreWork);
 }
 const planInput=document.querySelector('[data-plan-start]');
@@ -198,7 +195,7 @@ document.querySelectorAll('[data-youtube-id]').forEach(link=>link.addEventListen
  link.hidden=true;link.parentElement.append(frame);frame.focus();
 }));
 
-const filters=[...document.querySelectorAll('[data-history-filter]')];
+const filters=document.querySelector('[data-history-browser]') ? [] : [...document.querySelectorAll('[data-history-filter]')];
 const records=[...document.querySelectorAll('[data-history-track]')];
 function filterHistory(value,write=false){
  const selected=filters.some(b=>b.dataset.historyFilter===value)?value:'all';

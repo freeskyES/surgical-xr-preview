@@ -1,0 +1,171 @@
+/* The series introduction borrows the product home's blue palette.
+   Equipment reports keep their own reading theme. */
+.endoscope-overview {
+  --bg: #fbfcfd;
+  --ink: #202d3b;
+  --muted: #5d6b78;
+  --line: #dbe3eb;
+  --accent: #205b88;
+  --soft: #edf3f8;
+  --dark: #142f4b;
+  background: var(--bg);
+  color: var(--ink);
+}
+.endoscope-overview .site-header { background: #fbfcfdf5; border-color: var(--line); }
+.endoscope-overview .ei-article .article-header { padding-bottom: 16px; }
+.endoscope-overview .ei-article .article-header h1 { color: #142f4b; }
+.endoscope-overview .ei-article .article-lede { color: #526171; font-size: 16px; line-height: 1.8; }
+.endoscope-overview .ei-article .article-body { color: #354656; }
+.endoscope-overview .ei-article .article-body :is(h2,h3) { color: var(--ink); }
+.endoscope-overview .ei-article .article-body h2 { margin-bottom: 16px; }
+.endoscope-overview .ei-article .article-body p { line-height: 1.85; }
+.endoscope-overview .ei-article .article-body > .ei-opening { padding-top: 40px; }
+.endoscope-overview .ei-article .ei-opening > p { margin-block: 0; }
+
+/* A working foundation and parallel research directions, not a timeline. */
+.endoscope-overview .ei-article .ei-opening > .ei-vision-label { margin: 0 0 14px; color: var(--accent); font-size: 12px; font-weight: 550; letter-spacing: .025em; }
+.endoscope-overview .ei-article .ei-opening > h2 { font-size: clamp(28px,3.2vw,36px); line-height: 1.4; letter-spacing: -.035em; color: var(--dark); margin-bottom: 20px; }
+.endoscope-overview .ei-article .ei-opening > h2 + p { max-width: 640px; }
+.endoscope-overview .ei-vision { margin: 32px 0 24px; }
+.endoscope-overview .ei-foundation { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; align-items: center; padding: 26px 28px; border-radius: 12px; background: linear-gradient(115deg,#142f4b,#244a69); color: #f2f6fa; }
+.endoscope-overview .ei-foundation-label { display: block; margin-bottom: 6px; color: #bed2e3; font-size: 11px; letter-spacing: .025em; }
+.endoscope-overview .ei-article .ei-foundation h3 { margin: 0; color: #f2f6fa; font-size: 20px; line-height: 1.45; font-weight: 600; }
+.endoscope-overview .ei-article .ei-foundation p { margin: 0; color: #d9e4ed; font-size: 14px; line-height: 1.8; }
+/* Disclosures share one row on desktop; each opens directly below its trigger on mobile. */
+.endoscope-overview .ei-vision-directions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); column-gap: 24px; margin: 28px 0 0; }
+.endoscope-overview .ei-vision-item { display: contents; }
+.endoscope-overview .ei-vision-trigger { appearance: none; grid-row: 1; min-width: 0; position: relative; display: flex; flex-direction: column; align-items: stretch; width: 100%; padding: 17px 0 12px; border: 0; border-top: 1px solid #c3d4e2; border-radius: 0; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer; transition: border-color 180ms; }
+.endoscope-overview .ei-vision-trigger::before { content: ''; position: absolute; inset: 0 -10px -2px; z-index: -1; border-radius: 0 0 8px 8px; background: #edf4fa; opacity: 0; transition: opacity 180ms; }
+.endoscope-overview .ei-vision-trigger { isolation: isolate; }
+.endoscope-overview .ei-vision-trigger:focus-visible { outline: 2px solid #668fac; outline-offset: 5px; border-radius: 3px; }
+.endoscope-overview .ei-vision-trigger[aria-expanded="true"] { border-color: #35739e; }
+.endoscope-overview .ei-vision-trigger[aria-expanded="true"]::before { opacity: .7; }
+.endoscope-overview .ei-vision-name { display: block; color: var(--accent); font-size: 17px; font-weight: 550; letter-spacing: -.025em; line-height: 1.5; }
+.endoscope-overview .ei-vision-trigger > strong { display: block; margin-top: 8px; color: #2c4053; font-size: 14px; font-weight: 600; letter-spacing: -.025em; line-height: 1.5; word-break: keep-all; }
+.endoscope-overview .ei-vision-summary { display: block; margin: 10px 0 18px; color: #526171; font-size: 14px; line-height: 1.8; word-break: keep-all; }
+.endoscope-overview .ei-vision-action { display: block; position: relative; min-height: 22px; padding-right: 28px; margin-top: auto; color: #526f87; font-size: 11px; line-height: 22px; }
+.endoscope-overview .ei-vision-plus { position: absolute; right: 0; top: 1px; width: 20px; height: 20px; border: 1px solid #b8ccdc; border-radius: 50%; transition: background 180ms; }
+.endoscope-overview .ei-vision-plus::before,.endoscope-overview .ei-vision-plus::after { content: ''; position: absolute; inset: 8px 5px; height: 1px; background: #4d7797; }
+.endoscope-overview .ei-vision-plus::after { transform: rotate(90deg); transition: transform 180ms; }
+.endoscope-overview .ei-vision-trigger[aria-expanded="true"] .ei-vision-plus::after { transform: rotate(0); }
+@media (hover: hover) and (pointer: fine) {
+  .endoscope-overview .ei-vision-trigger:hover { border-color: #6895b6; }
+  .endoscope-overview .ei-vision-trigger:hover::before { opacity: .6; }
+  .endoscope-overview .ei-vision-trigger:hover .ei-vision-plus { background: #e0edf7; }
+}
+.endoscope-overview .ei-vision-panel { position: relative; grid-column: 1 / -1; grid-row: 2; margin: 20px 0 22px; padding: 36px 36px 42px; border: 1px solid #d5e2ed; border-radius: 14px; background: #f5f9fc; }
+.endoscope-overview .ei-vision-panel[hidden] { display: none; }
+.endoscope-overview .ei-vision-detail { display: grid; grid-template-columns: minmax(0,.84fr) minmax(0,1.16fr); gap: 36px; align-items: center; }
+.endoscope-overview .ei-vision-detail-label { color: #597a94; font-size: 11px; font-weight: 550; letter-spacing: .025em; }
+.endoscope-overview .ei-article .ei-vision-detail h3 { margin: 14px 0 0; color: #203d56; font-size: clamp(26px,2.7vw,32px); font-weight: 600; line-height: 1.45; letter-spacing: -.04em; word-break: keep-all; }
+.endoscope-overview .ei-vision-detail h3 > span { color: #32759f; }
+.endoscope-overview .ei-article .ei-vision-detail-copy > p { margin: 14px 0 0; color: #5c6c7b; font-size: 14px; line-height: 1.85; word-break: keep-all; }
+.endoscope-overview .ei-article .ei-vision-detail-copy > .ei-vision-detail-lead { margin-top: 0; color: #354b5e; font-size: 15px; }
+.endoscope-overview .ei-vision-close { appearance: none; position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #c7d8e6; border-radius: 50%; background: #f8fbfd; color: #466c88; cursor: pointer; transition: background 180ms, border-color 180ms; }
+.endoscope-overview .ei-vision-close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.endoscope-overview .ei-vision-close:hover { background: #e8f1f8; border-color: #8eabc1; }
+.endoscope-overview .ei-vision-close:focus-visible { outline: 2px solid #668fac; outline-offset: 4px; }
+.endoscope-overview .ei-article .ei-opening > .media { margin: 0 0 28px; }
+.endoscope-overview .ei-article .ei-photo .image-open { background: #edf3f8; }
+.endoscope-overview .ei-article .ei-photo .expand { background: #f8fbfd; }
+.endoscope-overview .ei-article figcaption { color: var(--muted); }
+
+/* A short outlook within the introduction, before the equipment story. */
+.endoscope-overview .ei-direction { margin: 32px 0 28px; padding-block: 26px; border-block: 1px solid var(--line); }
+.endoscope-overview .ei-article .ei-direction h3 { margin: 0 0 14px; color: #244c6c; font-size: 23px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; text-wrap: balance; }
+.endoscope-overview .ei-article .ei-direction > p { margin: 0; color: #435262; font-size: 15px; line-height: 1.85; }
+
+/* Blue only where it explains structure or signals an action. */
+.endoscope-overview .ei-article .ei-diagram { background: linear-gradient(135deg,#edf3f9,#f8fafc); border-color: var(--line); }
+.endoscope-overview .ei-article .ei-diagram .ei-figure-label { color: #486780; }
+.endoscope-overview .ei-node strong { color: #24445f; }
+.endoscope-overview .ei-node > span { color: #536a7c; }
+.endoscope-overview .ei-arrow { color: #6788a3; }
+.endoscope-overview .ei-node--processor { background: #dfeaf4; }
+.endoscope-overview .ei-destinations { border-color: #b7cada; }
+.endoscope-overview .ei-existing-path .ei-node { align-items: center; text-align: center; }
+.endoscope-overview .ei-existing-path > .ei-arrow { justify-self: center; font-size: 18px; line-height: 1; }
+.endoscope-overview .ei-existing-path .ei-destinations { padding-inline: 0; }
+@media (min-width: 601px) {
+  .endoscope-overview .ei-existing-path { grid-template-columns: repeat(2,minmax(0,1fr) clamp(40px,5vw,56px)) minmax(0,1fr); gap: 0; }
+}
+.endoscope-overview .ei-article .ei-diagram figcaption { border-color: var(--line); }
+.endoscope-overview .ei-article .ei-routes { padding-bottom: 0; }
+.endoscope-overview .ei-route + .ei-route { border-color: var(--line); }
+.endoscope-overview .ei-article .ei-route-heading p { color: #536a7c; }
+.endoscope-overview .ei-route-path .ei-node--xr { border-color: #cbdce9; background: #e1edf7; }
+.endoscope-overview .ei-stereo p span { color: #536a7c; }
+.endoscope-overview .ei-eyes,
+.endoscope-overview .ei-eyes span + span,
+.endoscope-overview .ei-eyes--separate span { border-color: #afc4d6; }
+.endoscope-overview .ei-eyes span { color: #285575; background: #e0ecf6; }
+.endoscope-overview .ei-eyes span + span { background: #f0f5fa; }
+.endoscope-overview .ei-device { background: #fff; border-color: var(--line); }
+.endoscope-overview .ei-device:hover,
+.endoscope-overview .ei-device:focus-within { border-color: #8caac1; box-shadow: 0 5px 16px #142f4b0a; }
+.endoscope-overview .ei-maker { color: var(--muted); }
+.endoscope-overview .ei-port,
+.endoscope-overview .ei-device-cta { color: var(--accent); }
+.endoscope-overview .ei-device .ei-device-cta { border-color: var(--line); }
+.endoscope-overview .ei-article .ei-device p,
+.endoscope-overview .ei-article .es-equipment-item p { color: #435262; }
+.endoscope-overview .ei-article .ei-small-note { color: var(--muted); }
+.endoscope-overview .ei-case { background: linear-gradient(120deg,#e7f0f8,#f3f7fb); border-color: #cedeea; color: #24445f; }
+.endoscope-overview .ei-case:hover { border-color: #8caac1; box-shadow: 0 5px 18px #142f4b0a; }
+.endoscope-overview .ei-case-label { color: #4b6981; }
+.endoscope-overview .ei-article .ei-case p { color: #435b6e; }
+
+/* Keep gallery chrome consistent without changing any photo treatment. */
+.endoscope-overview .es-gallery-open { background: var(--soft); }
+.endoscope-overview .ei-device-gallery--product { background: #fff; }
+.endoscope-overview .es-gallery-badge { background: #142f4bdb; }
+.endoscope-overview .es-gallery-open:hover .es-gallery-badge { background: #244c6ceb; }
+.endoscope-overview .es-equipment-item .es-gallery-badge { background: #ffffffeb; color: #38566e; box-shadow: 0 1px 5px #142f4b17; }
+.endoscope-overview .es-equipment-item .es-gallery-open:hover .es-gallery-badge { background: #fff; }
+.endoscope-overview .es-gallery { background: #f9fbfd; color: var(--ink); border-color: var(--line); }
+.endoscope-overview .es-gallery::backdrop { background: #0b1b2fd9; }
+.endoscope-overview .es-gallery-header { border-color: var(--line); }
+.endoscope-overview .es-gallery-header button { color: #435b6e; }
+.endoscope-overview .es-gallery-stage { background: #eaf0f5; }
+.endoscope-overview .es-gallery-stage video { background: #101c28; }
+.endoscope-overview .es-gallery-stage > p { background: #f9fbfded; color: #354e63; }
+.endoscope-overview .es-gallery-details :is([data-gallery-caption],nav span) { color: #536a7c; }
+.endoscope-overview .es-gallery-details nav button { color: var(--accent); border-color: var(--line); }
+.endoscope-overview .es-gallery-details nav button:hover { background: #e2edf6; }
+.endoscope-overview .es-gallery-thumbs button[aria-pressed="true"] { border-color: var(--accent); }
+.endoscope-overview .es-gallery-thumbs span { background: #142f4bd9; }
+.endoscope-overview :is(a,button,summary):focus-visible { outline-color: var(--accent); }
+
+@media (max-width: 600px) {
+  .endoscope-overview .ei-article .article-lede { font-size: 15px; }
+  .endoscope-overview .ei-article .article-body > .ei-opening { padding-top: 28px; }
+  .endoscope-overview .ei-vision { margin-top: 26px; }
+  .endoscope-overview .ei-foundation { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
+  .endoscope-overview .ei-vision-directions { grid-template-columns: 1fr; gap: 16px; }
+  .endoscope-overview .ei-vision-trigger { grid-row: auto; padding-top: 16px; padding-bottom: 10px; }
+  .endoscope-overview .ei-vision-trigger > strong { margin-top: 5px; }
+  .endoscope-overview .ei-vision-summary { margin-top: 8px; margin-bottom: 12px; }
+  .endoscope-overview .ei-vision-panel { grid-row: auto; margin: 0 0 24px; padding: 28px 24px 36px; }
+  .endoscope-overview .ei-vision-detail { grid-template-columns: 1fr; gap: 24px; }
+  .endoscope-overview .ei-article .ei-vision-detail h3 { font-size: 28px; margin-top: 10px; }
+
+  .endoscope-overview .ei-direction { margin-block: 26px; padding-block: 22px; }
+  .endoscope-overview .ei-article .ei-direction h3 { font-size: 21px; }
+  .endoscope-overview .ei-article .ei-direction > p { font-size: 14px; }
+  .endoscope-overview .ei-existing-path > .ei-node { padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .endoscope-overview .ei-device:hover { transform: none; }
+  .endoscope-overview .ei-vision-directions *, .endoscope-overview .ei-vision-directions *::before, .endoscope-overview .ei-vision-directions *::after { transition: none; }
+}
+html[data-motion="reduce"] .endoscope-overview :is(.ei-device,.ei-case),
+html[data-motion="reduce"] .endoscope-overview .es-gallery-open::after { transition: none; }
+html[data-motion="reduce"] .endoscope-overview .ei-device:hover { transform: none; }
+@media print {
+  .endoscope-overview { --bg: #fff; }
+  .endoscope-overview :is(.ei-foundation,.ei-vision-directions > div) { break-inside: avoid; }
+}
+
+html[data-motion="reduce"] .endoscope-overview .ei-vision-directions *,
+html[data-motion="reduce"] .endoscope-overview .ei-vision-directions *::before,
+html[data-motion="reduce"] .endoscope-overview .ei-vision-directions *::after { transition: none; }
